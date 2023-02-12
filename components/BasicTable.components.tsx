@@ -1,23 +1,23 @@
+import useFetchOpportunities from '@/hooks/useFetchOpportunities';
 import { Fragment, useEffect, useState } from 'react';
 
 export const BasicTable = () => {
-  const [data, setData] = useState<any>([]);
+  // Fetches & Caches Data
+  const {
+    dataOpportunities,
+    isLoadingOpportunities,
+    isErrorOpportunities,
+    refetchOpportunities,
+  } = useFetchOpportunities();
 
   const handleRowClick = (event: any, row: any) => {
     console.log('row', row);
   };
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await fetch('/json/opportunities.json');
-        const result = await data.json();
-        setData(result);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
+  console.log(dataOpportunities);
+
+  if (isLoadingOpportunities) return <>Loading...</>;
+  if (isErrorOpportunities) return <>Error</>;
 
   return (
     <>
@@ -33,7 +33,7 @@ export const BasicTable = () => {
           <div className="pl-[20px]">Sales Rep</div>
         </div>
         <div className="grid grid-cols-[275px_275px_130px_120px_80px_90px_100px_150px] text-sm">
-          {data.map((row: any) => (
+          {dataOpportunities.map((row: any) => (
             <Fragment key={row.oppId}>
               <div
                 onClick={(event: any) => handleRowClick(event, row)}
