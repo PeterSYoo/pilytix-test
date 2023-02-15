@@ -1,87 +1,76 @@
 import useFetchOpportunities from '@/hooks/useFetchOpportunities';
 import { Fragment, useEffect, useState } from 'react';
 
-export const BasicTable = () => {
-  // Fetches & Caches Data
-  const {
-    dataOpportunities,
-    isLoadingOpportunities,
-    isErrorOpportunities,
-    refetchOpportunities,
-  } = useFetchOpportunities();
-
-  const handleRowClick = (event: any, row: any) => {
-    console.log('row', row);
-  };
-
-  console.log(dataOpportunities);
-
-  if (isLoadingOpportunities) return <>Loading...</>;
-  if (isErrorOpportunities) return <>Error</>;
-
+export const BasicTable = ({
+  dataOpportunities,
+  isLoadingOpportunities,
+  isErrorOpportunities,
+  refetchOpportunities,
+  handleRowClick,
+}: any) => {
   return (
     <>
-      <div className="grid auto-rows-auto border border-gray-600 rounded-lg">
-        <div className="grid grid-cols-[275px_275px_130px_120px_80px_90px_100px_150px] border-b border-black text-sm">
-          <div className="pl-[20px]">Opp Name</div>
-          <div className="pl-[20px]">Opp Stage</div>
-          <div className="pl-[20px]">Rep Probability</div>
-          <div className="pl-[20px]">PX Probability</div>
-          <div className="pl-[20px]">PX Tier</div>
-          <div className="pl-[20px]">Amount</div>
-          <div className="pl-[20px]">Product</div>
-          <div className="pl-[20px]">Sales Rep</div>
-        </div>
-        <div className="grid grid-cols-[275px_275px_130px_120px_80px_90px_100px_150px] text-sm">
-          {dataOpportunities.map((row: any) => (
+      <div className="mx-[13px] scrollbar-hide bg-white overflow-auto border border-[#F2F2F2] rounded-lg">
+        <div className="grid auto-rows-auto text-sm">
+          {dataOpportunities.map((row: any, index: number) => (
             <Fragment key={row.oppId}>
               <div
-                onClick={(event: any) => handleRowClick(event, row)}
-                className="mx-auto border-b border-black w-full pl-[20px]"
+                onClick={() => handleRowClick(event, row)}
+                className={`${
+                  index % 2 === 0 ? 'bg-white' : 'bg-[#F2F2F2]'
+                } hover:bg-[#e2e2e2] cursor-pointer border-b border-[#F2F2F2]`}
               >
-                {row.oppName}
-              </div>
-              <div
-                onClick={(event: any) => handleRowClick(event, row)}
-                className="mx-auto border-b border-black w-full pl-[20px]"
-              >
-                {row.stage}
-              </div>
-              <div
-                onClick={(event: any) => handleRowClick(event, row)}
-                className="mx-auto border-b border-black w-full pl-[20px]"
-              >
-                {row.repProbability}
-              </div>
-              <div
-                onClick={(event: any) => handleRowClick(event, row)}
-                className="mx-auto border-b border-black w-full pl-[20px]"
-              >
-                {row.pilytixProbability}
-              </div>
-              <div
-                onClick={(event: any) => handleRowClick(event, row)}
-                className="mx-auto border-b border-black w-full pl-[20px]"
-              >
-                {row.pilytixTier}
-              </div>
-              <div
-                onClick={(event: any) => handleRowClick(event, row)}
-                className="mx-auto border-b border-black w-full pl-[20px]"
-              >
-                {row.amount}
-              </div>
-              <div
-                onClick={(event: any) => handleRowClick(event, row)}
-                className="mx-auto border-b border-black w-full pl-[20px]"
-              >
-                {row.product}
-              </div>
-              <div
-                onClick={(event: any) => handleRowClick(event, row)}
-                className="mx-auto border-b border-black w-full pl-[20px]"
-              >
-                {row.salesRepName}
+                <div className="flex justify-between px-[10px] py-[4px]">
+                  <p>OPP NAME</p>
+                  <div className="">{row.oppName}</div>
+                </div>
+                <div className="flex justify-between px-[10px] py-[4px]">
+                  <p>OPP STAGE</p>
+                  <div className="bg-[#6f6f6f] rounded px-2">
+                    {row.stage === '1. No Conversation' && (
+                      <div className="text-[#e04747]">{row.stage}</div>
+                    )}
+                    {row.stage === '2. Attempted Contact' && (
+                      <div className="text-[#ff9a6f]">{row.stage}</div>
+                    )}
+                    {row.stage === '3. Initial Conversation' && (
+                      <div className="text-[#ffbe78]">{row.stage}</div>
+                    )}
+                    {row.stage === '5. Meeting or Product Discovery' && (
+                      <div className="text-[#F8D600]">{row.stage}</div>
+                    )}
+                    {row.stage === '7. Nearing a Decision' && (
+                      <div className="text-[#DDD500]">{row.stage}</div>
+                    )}
+                    {row.stage === '8. Payment Pending' && (
+                      <div className="text-[#CAD400]">{row.stage}</div>
+                    )}
+                  </div>
+                </div>
+                <div className="flex justify-between px-[10px] py-[4px]">
+                  <p>REPP PROBABILITY</p>
+                  <div>{row.repProbability}</div>
+                </div>
+                <div className="flex justify-between px-[10px] py-[4px]">
+                  <p>PX PROBABILITY</p>
+                  <div>{row.pilytixProbability}</div>
+                </div>
+                <div className="flex justify-between px-[10px] py-[4px]">
+                  <p>PX TIER</p>
+                  <div>{row.pilytixTier}</div>
+                </div>
+                <div className="flex justify-between px-[10px] py-[4px]">
+                  <p>AMOUNT</p>
+                  <div>{row.amount}</div>
+                </div>
+                <div className="flex justify-between px-[10px] py-[4px]">
+                  <p>PRODUCT</p>
+                  <div>{row.product}</div>
+                </div>
+                <div className="flex justify-between px-[10px] py-[4px]">
+                  <p>SALES REP</p>
+                  <div>{row.salesRepName}</div>
+                </div>
               </div>
             </Fragment>
           ))}
