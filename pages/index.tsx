@@ -1,8 +1,13 @@
 import { BasicTable } from '@/components/BasicTable.components';
+import { Modal } from '@/components/Modal.components';
 import useFetchOpportunities from '@/hooks/useFetchOpportunities';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const Home = () => {
+  const [isModal, setIsModal] = useState(false);
+  const [opportunityName, setOpportunityName] = useState('');
+
   // Fetches & Caches Data
   const {
     dataOpportunities,
@@ -11,10 +16,13 @@ const Home = () => {
     refetchOpportunities,
   } = useFetchOpportunities();
 
-  console.log(dataOpportunities);
+  const handleRowClick = (name: string) => {
+    setOpportunityName(name);
+    setIsModal(true);
+  };
 
-  const handleRowClick = (event: any, row: any) => {
-    console.log('row', row);
+  const handleCloseModal = () => {
+    setIsModal(false);
   };
 
   if (isLoadingOpportunities) return <>Loading...</>;
@@ -22,11 +30,12 @@ const Home = () => {
 
   return (
     <>
+      {isModal && <Modal name={opportunityName} onClose={handleCloseModal} />}
       <div className="w-full h-full grid grid-rows-[54px_44px_59px_1fr] xl:grid-rows-[54px_107px_44px_59px_1fr] xl:max-w-[1405px] mx-auto max-w-[1024px] bg-white">
         {/* Header */}
         {/* Row 1 */}
         <div className="flex justify-between items-center border-t-[5px] border-t-[#69A4F9] border-b border-b-[#F2F2F2] px-[15px] xl:px-[34px]">
-          <div className="flex items-center text-xs">
+          <div className="flex items-center text-xs font-medium">
             <span>PILYTIX</span>
             <div className="mt-[1px]">
               <Image
@@ -85,15 +94,14 @@ const Home = () => {
               placeholder="Search Opportunities"
             />
           </div>
-          <button className="flex items-center h-[30px] border border-[#DFE1E4] rounded-lg px-[10px] gap-[4px] shadow-[0_3px_0px_0px_rgba(223,225,228,1)] hover:mt-[4px] hover:shadow-none">
+          <button className="flex items-center h-[30px] rounded-lg px-[10px] gap-[4px] shadow-[0_3px_0px_0px_rgba(105,162,249,1)] hover:mt-[7px] hover:shadow-none bg-gradient-to-b from-[#69A2F9] to-[#72C6FB]">
             <Image
-              src="https://res.cloudinary.com/dryh1nvhk/image/upload/v1676441600/PILYTIX%20Test/mobile/add_muhdlz.png"
+              src="https://res.cloudinary.com/dryh1nvhk/image/upload/v1676528284/PILYTIX%20Test/mobile/plus_wavqzz.png"
               alt="add"
-              width={15}
-              height={15}
-              className="pt-[1px]"
+              width={12}
+              height={12}
             />
-            <span className="text-xs text-[#6C6F75] font-medium">
+            <span className="text-xs text-white font-medium">
               New Opportunity
             </span>
           </button>
@@ -107,6 +115,8 @@ const Home = () => {
           isErrorOpportunities={isErrorOpportunities}
           refetchOpportunities={refetchOpportunities}
           handleRowClick={handleRowClick}
+          isModal={isModal}
+          setIsModal={setIsModal}
         />
         {/*  */}
       </div>
