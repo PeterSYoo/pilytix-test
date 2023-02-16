@@ -22,10 +22,10 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-full h-full grid grid-rows-[54px_44px_59px_1fr] mx-auto max-w-[1024px] bg-white">
+      <div className="w-full h-full grid grid-rows-[54px_44px_59px_1fr] xl:grid-rows-[54px_107px_44px_59px_1fr] xl:max-w-[1405px] mx-auto max-w-[1024px] bg-white">
         {/* Header */}
         {/* Row 1 */}
-        <div className="flex justify-between items-center border-t-[5px] border-t-[#69A4F9] border-b border-b-[#F2F2F2] px-[15px]">
+        <div className="flex justify-between items-center border-t-[5px] border-t-[#69A4F9] border-b border-b-[#F2F2F2] px-[15px] xl:px-[34px]">
           <div className="flex items-center text-xs">
             <span>PILYTIX</span>
             <div className="mt-[1px]">
@@ -49,7 +49,20 @@ const Home = () => {
         </div>
         {/*  */}
         {/* Row 2 */}
-        <div className="w-full border-b-[2px] border-b-[#F2F2F2] px-[15px] h-full">
+        <div className="hidden xl:flex justify-between items-center px-[34px] pt-[18px] gap-[10px]">
+          <div className="border border-[#F2F2F2] h-full w-full text-xs text-[#D7D7D7] font-bold flex justify-center items-center rounded-lg">
+            PLACEHOLDER
+          </div>
+          <div className="border border-[#F2F2F2] h-full w-full text-xs text-[#D7D7D7] font-bold flex justify-center items-center rounded-lg">
+            PLACEHOLDER
+          </div>
+          <div className="border border-[#F2F2F2] h-full w-full text-xs text-[#D7D7D7] font-bold flex justify-center items-center rounded-lg">
+            PLACEHOLDER
+          </div>
+        </div>
+        {/*  */}
+        {/* Row 3 */}
+        <div className="w-full border-b-[2px] border-b-[#F2F2F2] px-[15px] h-full xl:px-[34px]">
           <div className="flex items-end h-full border-b-[2px] border-b-[#44DDB0] w-fit mt-[2px]">
             <span className="text-sm font-bold pb-[6px]">
               OPPORTUNITIES ({dataOpportunities.length})
@@ -57,8 +70,8 @@ const Home = () => {
           </div>
         </div>
         {/*  */}
-        {/* Row 3 */}
-        <div className="w-full px-[15px] flex justify-between items-center">
+        {/* Row 4 */}
+        <div className="w-full px-[15px] flex justify-between items-center xl:px-[34px]">
           <div className="flex items-center gap-[11px] h-[30px] border border-[#DFE1E4] rounded-lg px-[10px]">
             <Image
               src="https://res.cloudinary.com/dryh1nvhk/image/upload/v1676441190/PILYTIX%20Test/mobile/search_zmpj2l.png"
@@ -72,7 +85,7 @@ const Home = () => {
               placeholder="Search Opportunities"
             />
           </div>
-          <button className="flex items-center h-[30px] border border-[#DFE1E4] rounded-lg px-[10px] gap-[4px] shadow-[0_3px_0px_0px_rgba(223,225,228,1)] hover:mt-[3px] hover:shadow-none">
+          <button className="flex items-center h-[30px] border border-[#DFE1E4] rounded-lg px-[10px] gap-[4px] shadow-[0_3px_0px_0px_rgba(223,225,228,1)] hover:mt-[4px] hover:shadow-none">
             <Image
               src="https://res.cloudinary.com/dryh1nvhk/image/upload/v1676441600/PILYTIX%20Test/mobile/add_muhdlz.png"
               alt="add"
@@ -80,7 +93,9 @@ const Home = () => {
               height={15}
               className="pt-[1px]"
             />
-            <span className="text-xs text-[#6C6F75]">New Opportunity</span>
+            <span className="text-xs text-[#6C6F75] font-medium">
+              New Opportunity
+            </span>
           </button>
         </div>
         {/*  */}
