@@ -15,7 +15,7 @@ export const Modal = ({
           <div className="bg-white rounded-lg grid grid-rows-[58px_1fr] h-4/5 max-w-[1300px] w-full">
             {/* Header */}
             <div className="flex justify-between items-center border-t-[5px] border-t-[#69A4F9] border-b border-b-[#F2F2F2] px-[18px]">
-              <div className="flex flex-col md:flex-row text-xs font-medium">
+              <div className="flex flex-col md:flex-row md:items-center text-xs font-medium">
                 <div className="flex items-center">
                   <span>PILYTIX Scored Opportunities</span>
                   <div className="mt-[1px]">
