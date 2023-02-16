@@ -10,65 +10,85 @@ export const BasicTable = ({
 }: any) => {
   return (
     <>
-      <div className="mx-[13px] scrollbar-hide bg-white overflow-auto border border-[#F2F2F2] rounded-lg">
-        <div className="grid auto-rows-auto text-sm">
+      <div className="mx-[13px] xl:mx-[34px] scrollbar-hide bg-white overflow-auto border border-[#F2F2F2] rounded-lg">
+        <div className="grid auto-rows-auto text-sm xl:text-xs">
+          <div className="hidden xl:grid-cols-[1.9fr_1.9fr_1fr_1fr_1fr_1fr_1fr_1fr] xl:grid xl:py-3 xl:pl-[17px] text-xs font-medium text-[#6C6F75] border-b border-[#F2F2F2]">
+            <span>OPP NAME</span>
+            <span>OPP STAGE</span>
+            <span>REP PROBABILITY</span>
+            <span>PX PROBABILITY</span>
+            <span>PX TIER</span>
+            <span>AMOUNT</span>
+            <span>PRODUCT</span>
+            <span>SALES REP</span>
+          </div>
           {dataOpportunities.map((row: any, index: number) => (
             <Fragment key={row.oppId}>
               <div
                 onClick={() => handleRowClick(event, row)}
                 className={`${
-                  index % 2 === 0 ? 'bg-white' : 'bg-[#F2F2F2]'
-                } hover:bg-[#e2e2e2] cursor-pointer border-b border-[#F2F2F2]`}
+                  index % 2 === 0 ? 'bg-white' : 'bg-[#F2F2F2] xl:bg-white'
+                } hover:bg-[#eaeaea] cursor-pointer border-b border-[#F2F2F2] xl:grid-cols-[1.9fr_1.9fr_1fr_1fr_1fr_1fr_1fr_1fr] xl:grid xl:py-2 xl:px-2 md:px-3`}
               >
                 <div className="flex justify-between px-[10px] py-[4px]">
-                  <p>OPP NAME</p>
+                  <p className="xl:hidden">OPP NAME</p>
                   <div className="">{row.oppName}</div>
                 </div>
                 <div className="flex justify-between px-[10px] py-[4px]">
-                  <p>OPP STAGE</p>
-                  <div className="bg-[#6f6f6f] rounded px-2">
-                    {row.stage === '1. No Conversation' && (
-                      <div className="text-[#e04747]">{row.stage}</div>
-                    )}
-                    {row.stage === '2. Attempted Contact' && (
-                      <div className="text-[#ff9a6f]">{row.stage}</div>
-                    )}
-                    {row.stage === '3. Initial Conversation' && (
-                      <div className="text-[#ffbe78]">{row.stage}</div>
-                    )}
-                    {row.stage === '5. Meeting or Product Discovery' && (
-                      <div className="text-[#F8D600]">{row.stage}</div>
-                    )}
-                    {row.stage === '7. Nearing a Decision' && (
-                      <div className="text-[#DDD500]">{row.stage}</div>
-                    )}
-                    {row.stage === '8. Payment Pending' && (
-                      <div className="text-[#CAD400]">{row.stage}</div>
-                    )}
-                  </div>
+                  <p className="xl:hidden">OPP STAGE</p>
+                  {row.stage === '1. No Conversation' && (
+                    <div className="text-[#69A4F9] bg-[#F2F2F2] rounded px-2 py-1 flex justify-center items-center">
+                      {row.stage}
+                    </div>
+                  )}
+                  {row.stage === '2. Attempted Contact' && (
+                    <div className="text-[#69bff9] bg-[#F2F2F2] rounded px-2 py-1 flex justify-center items-center">
+                      {row.stage}
+                    </div>
+                  )}
+                  {row.stage === '3. Initial Conversation' && (
+                    <div className="text-[#69cbf9] bg-[#F2F2F2] rounded px-2 py-1 flex justify-center items-center">
+                      {row.stage}
+                    </div>
+                  )}
+                  {row.stage === '5. Meeting or Product Discovery' && (
+                    <div className="text-[#35abc5] bg-[#F2F2F2] rounded px-2 py-1 flex justify-center items-center">
+                      {row.stage}
+                    </div>
+                  )}
+                  {row.stage === '7. Nearing a Decision' && (
+                    <div className="text-[#35c3c5] bg-[#F2F2F2] rounded px-2 py-1 flex justify-center items-center">
+                      {row.stage}
+                    </div>
+                  )}
+                  {row.stage === '8. Payment Pending' && (
+                    <div className="text-[#35C5A2] bg-[#F2F2F2] rounded px-2 py-1 flex justify-center items-center">
+                      {row.stage}
+                    </div>
+                  )}
                 </div>
                 <div className="flex justify-between px-[10px] py-[4px]">
-                  <p>REPP PROBABILITY</p>
+                  <p className="xl:hidden">REPP PROBABILITY</p>
                   <div>{row.repProbability}</div>
                 </div>
                 <div className="flex justify-between px-[10px] py-[4px]">
-                  <p>PX PROBABILITY</p>
+                  <p className="xl:hidden">PX PROBABILITY</p>
                   <div>{row.pilytixProbability}</div>
                 </div>
                 <div className="flex justify-between px-[10px] py-[4px]">
-                  <p>PX TIER</p>
+                  <p className="xl:hidden">PX TIER</p>
                   <div>{row.pilytixTier}</div>
                 </div>
                 <div className="flex justify-between px-[10px] py-[4px]">
-                  <p>AMOUNT</p>
+                  <p className="xl:hidden">AMOUNT</p>
                   <div>{row.amount}</div>
                 </div>
                 <div className="flex justify-between px-[10px] py-[4px]">
-                  <p>PRODUCT</p>
+                  <p className="xl:hidden">PRODUCT</p>
                   <div>{row.product}</div>
                 </div>
                 <div className="flex justify-between px-[10px] py-[4px]">
-                  <p>SALES REP</p>
+                  <p className="xl:hidden">SALES REP</p>
                   <div>{row.salesRepName}</div>
                 </div>
               </div>
