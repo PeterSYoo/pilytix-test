@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const Home = () => {
   const [isModal, setIsModal] = useState(false);
-  const [opportunityName, setOpportunityName] = useState('');
+  const [rowData, setRowData] = useState(null);
 
   // Fetches & Caches Data
   const {
@@ -16,8 +16,8 @@ const Home = () => {
     refetchOpportunities,
   } = useFetchOpportunities();
 
-  const handleRowClick = (name: string) => {
-    setOpportunityName(name);
+  const handleRowClick = (rowData: any) => {
+    setRowData(rowData);
     setIsModal(true);
   };
 
@@ -30,7 +30,7 @@ const Home = () => {
 
   return (
     <>
-      {isModal && <Modal name={opportunityName} onClose={handleCloseModal} />}
+      {isModal && <Modal rowData={rowData} onClose={handleCloseModal} />}
       <div className="w-full h-full grid grid-rows-[54px_44px_59px_1fr] xl:grid-rows-[54px_107px_44px_59px_1fr] xl:max-w-[1405px] mx-auto max-w-[1024px] bg-white">
         {/* Header */}
         {/* Row 1 */}
