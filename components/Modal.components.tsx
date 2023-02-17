@@ -72,10 +72,10 @@ export const Modal = ({
               </button>
             </div>
             {/*  */}
-            <div className="flex flex-col w-full overflow-auto scrollbar-hide">
+            <div className="flex flex-col w-full overflow-auto scrollbar-hide gap-[30px]">
               {/* Probability History */}
               {rowData.probabilityHistory && (
-                <div className="px-[31px] pt-[18px] flex flex-col gap-[9px] w-full pb-[25px]">
+                <div className="px-[31px] pt-[18px] flex flex-col gap-[9px] w-full">
                   <span className="text-sm font-medium">Probably History</span>
                   <div className="border rounded-lg flex justify-center items-center h-[350px] w-full">
                     {/* Line Chart */}
@@ -245,7 +245,7 @@ export const Modal = ({
               {/*  */}
               {/* PILYTIX Factors Increasing Win */}
               {rowData.pilytixFactorsIncreasingWin && (
-                <div className="px-[31px] py-[50px] flex flex-col gap-[9px] w-full h-full ">
+                <div className="px-[31px] pt-[18px] flex flex-col gap-[9px] w-full h-full ">
                   <span className="text-sm font-medium">
                     PILYTIX Factors Increasing Win
                   </span>
@@ -331,7 +331,7 @@ export const Modal = ({
 
               {/* PILYTIX Factors Decreasing Win */}
               {rowData.pilytixFactorsDecreasingWin && (
-                <div className="px-[31px] py-[50px] flex flex-col gap-[9px] w-full h-full ">
+                <div className="px-[31px] pt-[18px] flex flex-col gap-[9px] w-full h-full pb-[100px]">
                   <span className="text-sm font-medium">
                     PILYTIX Factors Decreasing Win
                   </span>
