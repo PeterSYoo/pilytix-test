@@ -25,7 +25,7 @@ export const BasicTable = ({
           {dataOpportunities.map((row: any, index: number) => (
             <Fragment key={row.oppId}>
               <div
-                onClick={() => handleRowClick(row.oppName)}
+                onClick={() => handleRowClick(row)}
                 className={`${
                   index % 2 === 0 ? 'bg-white' : 'bg-[#f7f7f7] xl:bg-white'
                 } hover:bg-[#F2F2F2] cursor-pointer border-b border-[#F2F2F2] xl:grid-cols-[1.9fr_1.9fr_1fr_1fr_1fr_1fr_1fr_1fr] xl:grid xl:py-2 xl:px-2 md:px-3`}
