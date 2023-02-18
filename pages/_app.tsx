@@ -1,4 +1,5 @@
 import '@/styles/globals.css';
+import Head from 'next/head';
 import {
   Hydrate,
   QueryClient,
@@ -11,12 +12,17 @@ const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <div className="h-screen w-screen bg-[#F0F0F0] font-poppins">
-          <Component {...pageProps} />
-        </div>
-      </Hydrate>
-    </QueryClientProvider>
+    <>
+      <Head>
+        <title>PILYTIX Test - Peter Yoo</title>
+      </Head>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <div className="h-screen w-screen bg-[#F0F0F0] font-poppins">
+            <Component {...pageProps} />
+          </div>
+        </Hydrate>
+      </QueryClientProvider>
+    </>
   );
 }
