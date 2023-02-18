@@ -1,3 +1,9 @@
+/*
+name: Peter Yoo
+email: petersyoox@gmail.com
+
+I testify that this assignment was completely done by myself without any assistance from someone else.
+*/
 import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { IOpportunities } from '../types/opportunities';
@@ -19,16 +25,19 @@ const Home = () => {
     refetchOpportunities,
   } = useFetchOpportunities();
 
+  // Function for handling row clicks
   const handleRowClick = (rowData: IOpportunities, index: number) => {
     setActiveIndex(index);
     setRowData(rowData);
     setIsModal(true);
   };
 
+  // Function for closing the modal
   const handleCloseModal = useCallback(() => {
     setIsModal(false);
   }, []);
 
+  // Function for handling navigation for next row
   const handleNextItem = useCallback(() => {
     const currentIndex = dataOpportunities.indexOf(rowData);
     const nextIndex = (currentIndex + 1) % dataOpportunities.length;
@@ -36,6 +45,7 @@ const Home = () => {
     setActiveIndex(nextIndex);
   }, [dataOpportunities, rowData]);
 
+  // Function for handling navigation for previous row
   const handlePreviousItem = useCallback(() => {
     const currentIndex = dataOpportunities.indexOf(rowData);
     const previousIndex =
@@ -44,6 +54,7 @@ const Home = () => {
     setActiveIndex(previousIndex);
   }, [dataOpportunities, rowData]);
 
+  // Event listener for keyboard navigation on keypress and close modal on key press.
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'ArrowLeft') {
@@ -62,6 +73,7 @@ const Home = () => {
     };
   }, [handleNextItem, handlePreviousItem, handleCloseModal]);
 
+  // Conditional rendering for loading and error states from custom hook
   if (isLoadingOpportunities) return <>Loading...</>;
   if (isErrorOpportunities) return <>Error</>;
 
