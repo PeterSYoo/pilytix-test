@@ -37,6 +37,7 @@ export const Modal = ({
                 </div>
                 <span>{rowData?.oppName}</span>
               </div>
+              {/* Close Modal */}
               <button
                 onClick={onClose}
                 className="flex items-center h-[30px] rounded-lg px-[15px] gap-[4px] shadow-[0_3px_0px_0px_rgba(105,162,249,1)] hover:mt-[7px] hover:shadow-none bg-gradient-to-b from-[#69A2F9] to-[#72C6FB]"
@@ -48,6 +49,7 @@ export const Modal = ({
                   height={12}
                 />
               </button>
+              {/*  */}
             </div>
             {/*  */}
             {/* Charts */}
@@ -66,6 +68,7 @@ export const Modal = ({
           </div>
           {/* Arrows */}
           <div className="flex justify-center items-center max-w-[1410px] w-full gap-[20%]">
+            {/* Navigate previous row */}
             <div className="h-[45px]">
               <button
                 onClick={() => handlePreviousItem()}
@@ -80,6 +83,8 @@ export const Modal = ({
                 />
               </button>
             </div>
+            {/*  */}
+            {/* Navigate next row */}
             <div className="h-[45px]">
               <button
                 onClick={() => handleNextItem()}
@@ -94,6 +99,7 @@ export const Modal = ({
                 />
               </button>
             </div>
+            {/*  */}
           </div>
           {/*  */}
         </div>
