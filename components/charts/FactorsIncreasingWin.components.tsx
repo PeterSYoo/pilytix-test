@@ -10,13 +10,13 @@ export const FactorsIncreasingWin = ({
   return (
     <>
       {rowData?.pilytixFactorsIncreasingWin && (
-        <div className="px-[31px] pt-[18px] flex flex-col gap-[9px] w-full h-full ">
+        <div className="flex h-full w-full flex-col gap-[9px] px-[31px] pt-[18px] ">
           <span className="text-sm font-medium">
             PILYTIX Factors Increasing Win
           </span>
-          <div className="border rounded-lg flex justify-center items-center h-[350px] w-full">
+          <div className="flex h-[350px] w-full items-center justify-center rounded-lg border">
             {/* Radar Chart */}
-            <div className="hidden lg:block w-screen h-full pl-[100px] -ml-[100px]">
+            <div className="-ml-[100px] hidden h-full w-screen pl-[100px] lg:block">
               <ResponsiveRadar
                 data={rowData.pilytixFactorsIncreasingWin.map((factor) => ({
                   key: factor.name,
@@ -50,7 +50,7 @@ export const FactorsIncreasingWin = ({
             {/*  */}
 
             {/* Bar Chart */}
-            <div className="block lg:hidden w-screen h-full pl-[100px] -ml-[100px]">
+            <div className="-ml-[100px] block h-full w-screen pl-[100px] lg:hidden">
               <ResponsiveBar
                 data={rowData.pilytixFactorsIncreasingWin.map((factor) => {
                   return {
