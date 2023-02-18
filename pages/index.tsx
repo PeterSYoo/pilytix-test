@@ -9,6 +9,7 @@ const Home = () => {
   const [isModal, setIsModal] = useState<boolean>(false);
   const [rowData, setRowData] = useState<IOpportunities | null>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   // Fetches & Caches Data
   const {
@@ -135,6 +136,8 @@ const Home = () => {
               type="text"
               className="w-full focus:outline-none text-xs placeholder:text-xs"
               placeholder="Search Opportunities"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
           <button className="flex items-center h-[30px] rounded-lg px-[10px] gap-[4px] shadow-[0_3px_0px_0px_rgba(105,162,249,1)] hover:mt-[7px] hover:shadow-none bg-gradient-to-b from-[#69A2F9] to-[#72C6FB]">
@@ -155,6 +158,7 @@ const Home = () => {
         <BasicTable
           dataOpportunities={dataOpportunities}
           handleRowClick={handleRowClick}
+          searchTerm={searchTerm}
         />
         {/*  */}
       </div>
