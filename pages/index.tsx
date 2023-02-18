@@ -2,11 +2,12 @@ import { BasicTable } from '@/components/BasicTable.components';
 import { Modal } from '@/components/Modal.components';
 import useFetchOpportunities from '@/hooks/useFetchOpportunities';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const Home = () => {
   const [isModal, setIsModal] = useState(false);
   const [rowData, setRowData] = useState(null);
+  const [activeIndex, setActiveIndex] = useState<any>(null);
 
   // Fetches & Caches Data
   const {
@@ -16,21 +17,62 @@ const Home = () => {
     refetchOpportunities,
   } = useFetchOpportunities();
 
-  const handleRowClick = (rowData: any) => {
+  const handleRowClick = (rowData: any, index: number) => {
+    setActiveIndex(index);
     setRowData(rowData);
     setIsModal(true);
   };
 
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     setIsModal(false);
-  };
+  }, []);
+
+  const handleNextItem = useCallback(() => {
+    const currentIndex = dataOpportunities.indexOf(rowData);
+    const nextIndex = (currentIndex + 1) % dataOpportunities.length;
+    setRowData(dataOpportunities[nextIndex]);
+    setActiveIndex(nextIndex);
+  }, [dataOpportunities, rowData]);
+
+  const handlePreviousItem = useCallback(() => {
+    const currentIndex = dataOpportunities.indexOf(rowData);
+    const previousIndex =
+      (currentIndex - 1 + dataOpportunities.length) % dataOpportunities.length;
+    setRowData(dataOpportunities[previousIndex]);
+    setActiveIndex(previousIndex);
+  }, [dataOpportunities, rowData]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: any) => {
+      if (event.keyCode === 37) {
+        handlePreviousItem();
+      } else if (event.keyCode === 39) {
+        handleNextItem();
+      } else if (event.keyCode === 27) {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleNextItem, handlePreviousItem, handleCloseModal]);
 
   if (isLoadingOpportunities) return <>Loading...</>;
   if (isErrorOpportunities) return <>Error</>;
 
   return (
     <>
-      {isModal && <Modal rowData={rowData} onClose={handleCloseModal} />}
+      {isModal && activeIndex !== null ? (
+        <Modal
+          handleNextItem={handleNextItem}
+          handlePreviousItem={handlePreviousItem}
+          rowData={rowData}
+          onClose={handleCloseModal}
+        />
+      ) : null}
       <div className="w-full h-full grid grid-rows-[54px_44px_59px_1fr] xl:grid-rows-[54px_107px_44px_59px_1fr] xl:max-w-[1405px] mx-auto max-w-[1024px] bg-white">
         {/* Header */}
         {/* Row 1 */}

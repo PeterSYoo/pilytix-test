@@ -3,44 +3,23 @@ import { ResponsiveBullet } from '@nivo/bullet';
 import { Line, ResponsiveLine } from '@nivo/line';
 import { Radar, ResponsiveRadar } from '@nivo/radar';
 import Image from 'next/image';
+import { useState } from 'react';
 
 export const Modal = ({
   onClose,
   rowData,
+  handleNextItem,
+  handlePreviousItem,
 }: {
   onClose: () => void;
   rowData: any;
+  handleNextItem: () => void;
+  handlePreviousItem: () => void;
 }) => {
-  console.log(rowData);
-
-  const config = {
-    keys: ['value'],
-    indexBy: 'name',
-    maxValue: 3,
-    margin: { top: 70, right: 80, bottom: 40, left: 80 },
-    curve: 'linearClosed',
-    borderWidth: 2,
-    borderColor: { from: 'color' },
-    gridLevels: 3,
-    gridShape: 'circular',
-    gridLabelOffset: 36,
-    enableDots: true,
-    dotSize: 8,
-    dotBorderWidth: 0,
-    dotBorderColor: { from: 'color' },
-    dotLabel: 'value',
-    dotLabelYOffset: -12,
-    colors: { scheme: 'category10' },
-    fillOpacity: 0.25,
-    blendMode: 'normal',
-    animate: true,
-    motionConfig: 'gentle',
-  };
-
   return (
     <>
       <div className="h-screen w-screen bg-black/50 backdrop-blur-sm absolute flex justify-center items-center px-[18px]">
-        <div className="flex flex-col place-items-center place-content-center h-full w-full gap-5">
+        <div className="flex flex-col place-items-center place-content-center h-full w-full gap-10">
           {/* Modal Container */}
           <div className="bg-white rounded-lg grid grid-rows-[58px_1fr] h-4/5 w-full">
             {/* Header */}
@@ -382,10 +361,10 @@ export const Modal = ({
             {/*  */}
           </div>
           {/* Arrows */}
-          <div className="flex justify-center items-center max-w-[1410px] w-full gap-10">
+          <div className="flex justify-center items-center max-w-[1410px] w-full gap-[20%]">
             <div className="h-[45px]">
               <button
-                onClick={onClose}
+                onClick={() => handlePreviousItem()}
                 className="flex items-center h-[40px] rounded-lg px-[35px] gap-[4px] shadow-[0_3px_0px_0px_rgba(73,109,165,1)] hover:mt-[3px] hover:shadow-none bg-gradient-to-b from-[#5781c3] to-[#72C6FB]"
               >
                 <Image
@@ -399,7 +378,7 @@ export const Modal = ({
             </div>
             <div className="h-[45px]">
               <button
-                onClick={onClose}
+                onClick={() => handleNextItem()}
                 className="flex items-center h-[40px] rounded-lg px-[35px] gap-[4px] shadow-[0_3px_0px_0px_rgba(73,109,165,1)] hover:mt-[3px] hover:shadow-none bg-gradient-to-b from-[#5781c3] to-[#72C6FB]"
               >
                 <Image
