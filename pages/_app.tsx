@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
-        <div className="h-screen w-screen font-poppins bg-[#F0F0F0]">
+        <div className="h-screen w-screen bg-[#F0F0F0] font-poppins">
           <Component {...pageProps} />
         </div>
       </Hydrate>
