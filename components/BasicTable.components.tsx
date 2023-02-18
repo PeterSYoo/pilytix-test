@@ -1,13 +1,13 @@
-import useFetchOpportunities from '@/hooks/useFetchOpportunities';
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment } from 'react';
+import { IOpportunities } from '../types/opportunities';
 
 export const BasicTable = ({
   dataOpportunities,
-  isLoadingOpportunities,
-  isErrorOpportunities,
-  refetchOpportunities,
   handleRowClick,
-}: any) => {
+}: {
+  dataOpportunities: [IOpportunities];
+  handleRowClick: (row: IOpportunities, index: number) => void;
+}) => {
   return (
     <>
       <div className="mx-[13px] xl:mx-[34px] scrollbar-hide bg-white overflow-auto border border-[#F2F2F2] rounded-lg">
@@ -22,7 +22,7 @@ export const BasicTable = ({
             <span>PRODUCT</span>
             <span>SALES REP</span>
           </div>
-          {dataOpportunities.map((row: any, index: number) => (
+          {dataOpportunities.map((row, index) => (
             <Fragment key={row.oppId}>
               <div
                 onClick={() => handleRowClick(row, index)}
