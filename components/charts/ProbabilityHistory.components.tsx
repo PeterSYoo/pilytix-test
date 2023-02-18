@@ -10,11 +10,11 @@ export const ProbabilityHistory = ({
   return (
     <>
       {rowData?.probabilityHistory && (
-        <div className="px-[31px] pt-[18px] flex flex-col gap-[9px] w-full">
+        <div className="flex w-full flex-col gap-[9px] px-[31px] pt-[18px]">
           <span className="text-sm font-medium">Probably History</span>
-          <div className="border rounded-lg flex justify-center items-center h-[350px] w-full">
+          <div className="flex h-[350px] w-full items-center justify-center rounded-lg border">
             {/* Line Chart */}
-            <div className="hidden lg:block w-screen h-full pl-[100px] -ml-[100px]">
+            <div className="-ml-[100px] hidden h-full w-screen pl-[100px] lg:block">
               <ResponsiveLine
                 data={[
                   {
@@ -107,7 +107,7 @@ export const ProbabilityHistory = ({
             {/*  */}
 
             {/* Bar Chart */}
-            <div className="block lg:hidden w-screen h-full pl-[100px] -ml-[100px]">
+            <div className="-ml-[100px] block h-full w-screen pl-[100px] lg:hidden">
               <ResponsiveBar
                 data={rowData.probabilityHistory.slice().reverse()}
                 keys={['pilytixProb', 'repProb']}
