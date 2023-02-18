@@ -1,4 +1,4 @@
-import { IOpportunities } from '../../types/opportunities';
+import { IOpportunities } from '../../../types/opportunities';
 import { ResponsiveBar } from '@nivo/bar';
 
 export const FactorsDecreasingWin = ({
@@ -9,7 +9,7 @@ export const FactorsDecreasingWin = ({
   return (
     <>
       {rowData?.pilytixFactorsDecreasingWin && (
-        <div className="flex h-full w-full flex-col gap-[9px] px-[31px] pt-[18px] pb-[100px]">
+        <div className="flex h-full w-full flex-col gap-[9px] px-[31px] pt-[18px]">
           <span className="text-sm font-medium">
             PILYTIX Factors Decreasing Win
           </span>

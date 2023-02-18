@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { IOpportunities } from '../types/opportunities';
 import useFetchOpportunities from '@/hooks/useFetchOpportunities';
 import { BasicTable } from '@/components/BasicTable.components';
-import { Modal } from '@/components/Modal.components';
+import { Modal } from '@/components/modal/Modal.components';
 
 const Home = () => {
   const [isModal, setIsModal] = useState<boolean>(false);

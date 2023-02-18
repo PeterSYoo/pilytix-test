@@ -1,4 +1,4 @@
-import { IOpportunities } from '../../types/opportunities';
+import { IOpportunities } from '../../../types/opportunities';
 import { ResponsiveBar } from '@nivo/bar';
 import { ResponsiveRadar } from '@nivo/radar';
 
