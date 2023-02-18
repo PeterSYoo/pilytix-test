@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { IOpportunities } from '../types/opportunities';
 import { ProbabilityHistory } from './charts/ProbabilityHistory.components';
 import { FactorsIncreasingWin } from './charts/FactorsIncreasingWin.components';
-import { FactorsDescreasingWin } from './charts/FactorsDescreasingWin.components';
+import { FactorsDecreasingWin } from './charts/FactorsDecreasingWin.components';
 
 export const Modal = ({
   onClose,
@@ -59,7 +59,7 @@ export const Modal = ({
               <FactorsIncreasingWin rowData={rowData} />
               {/*  */}
               {/* PILYTIX Factors Decreasing Win */}
-              <FactorsDescreasingWin rowData={rowData} />
+              <FactorsDecreasingWin rowData={rowData} />
               {/*  */}
             </div>
             {/*  */}
