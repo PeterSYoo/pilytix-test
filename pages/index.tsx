@@ -1,4 +1,14 @@
 /*
+Worked on the test Mon-Fri, Feb 13-17
+
+Mon: Designed layout in Figma(https://www.figma.com/file/wNZrEiTbJXebXxCxGI5FsL/PILYTIX-Test?node-id=0%3A1&t=H5N5PeGXBXhN6Uj9-0) - 1 hour
+Tue: Started coding using the Figma design - 2 hour
+Wed: Hated the Figma design so started over and refactored the Figma design - 2 hour
+Thurs: Started coding the new refactored Figma design - 2.5 hour
+Fri: Finished app - 2.5 hour
+*/
+
+/*
 name: Peter Yoo
 email: petersyoox@gmail.com
 
