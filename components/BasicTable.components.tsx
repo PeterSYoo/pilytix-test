@@ -4,10 +4,16 @@ import { IOpportunities } from '../types/opportunities';
 export const BasicTable = ({
   dataOpportunities,
   handleRowClick,
+  searchTerm,
 }: {
   dataOpportunities: [IOpportunities];
   handleRowClick: (row: IOpportunities, index: number) => void;
+  searchTerm: string;
 }) => {
+  const filteredOpportunities = dataOpportunities.filter((row) =>
+    row.oppName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <div className="mx-[13px] xl:mx-[34px] scrollbar-hide bg-white overflow-auto border border-[#F2F2F2] rounded-lg">
@@ -22,7 +28,7 @@ export const BasicTable = ({
             <span>PRODUCT</span>
             <span>SALES REP</span>
           </div>
-          {dataOpportunities.map((row, index) => (
+          {filteredOpportunities.map((row, index) => (
             <Fragment key={row.oppId}>
               <div
                 onClick={() => handleRowClick(row, index)}
