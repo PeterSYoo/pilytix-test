@@ -10,6 +10,7 @@ export const BasicTable = ({
   handleRowClick: (row: IOpportunities, index: number) => void;
   searchTerm: string;
 }) => {
+  // Filters the opportunities data based on the search term, converting both the row data and the search term to lowercase.
   const filteredOpportunities = dataOpportunities.filter((row) =>
     row.oppName.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -18,6 +19,7 @@ export const BasicTable = ({
     <>
       <div className="mx-[13px] xl:mx-[34px] scrollbar-hide bg-white overflow-auto border border-[#F2F2F2] rounded-lg">
         <div className="grid auto-rows-auto text-sm xl:text-xs">
+          {/* Column names for xl screens and higher */}
           <div className="hidden xl:grid-cols-[1.9fr_1.9fr_1fr_1fr_1fr_1fr_1fr_1fr] xl:grid xl:py-3 xl:pl-[17px] text-xs font-medium text-[#6C6F75] border-b border-[#F2F2F2]">
             <span>OPP NAME</span>
             <span>OPP STAGE</span>
@@ -28,6 +30,7 @@ export const BasicTable = ({
             <span>PRODUCT</span>
             <span>SALES REP</span>
           </div>
+          {/*  */}
           {filteredOpportunities.map((row, index) => (
             <Fragment key={row.oppId}>
               <div
