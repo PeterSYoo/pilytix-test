@@ -17,13 +17,13 @@ export const Modal = ({
 }) => {
   return (
     <>
-      <div className="h-screen w-screen bg-black/50 backdrop-blur-sm absolute flex justify-center items-center px-[18px]">
-        <div className="flex flex-col place-items-center place-content-center h-full w-full gap-10">
+      <div className="absolute flex h-screen w-screen items-center justify-center bg-black/50 px-[18px] backdrop-blur-sm">
+        <div className="flex h-full w-full flex-col place-content-center place-items-center gap-10">
           {/* Modal Container */}
-          <div className="bg-white rounded-lg grid grid-rows-[58px_1fr] h-4/5 w-full">
+          <div className="grid h-4/5 w-full grid-rows-[58px_1fr] rounded-lg bg-white">
             {/* Header */}
-            <div className="flex justify-between items-center border-t-[5px] border-t-[#69A4F9] border-b border-b-[#F2F2F2] px-[31px] w-full">
-              <div className="flex flex-col md:flex-row md:items-center text-xs font-medium">
+            <div className="flex w-full items-center justify-between border-t-[5px] border-b border-t-[#69A4F9] border-b-[#F2F2F2] px-[31px]">
+              <div className="flex flex-col text-xs font-medium md:flex-row md:items-center">
                 <div className="flex items-center">
                   <span>PILYTIX Scored Opportunities</span>
                   <div className="mt-[1px]">
@@ -40,7 +40,7 @@ export const Modal = ({
               {/* Close Modal */}
               <button
                 onClick={onClose}
-                className="flex items-center h-[30px] rounded-lg px-[15px] gap-[4px] shadow-[0_3px_0px_0px_rgba(105,162,249,1)] hover:mt-[7px] hover:shadow-none bg-gradient-to-b from-[#69A2F9] to-[#72C6FB]"
+                className="flex h-[30px] items-center gap-[4px] rounded-lg bg-gradient-to-b from-[#69A2F9] to-[#72C6FB] px-[15px] shadow-[0_3px_0px_0px_rgba(105,162,249,1)] hover:mt-[7px] hover:shadow-none"
               >
                 <Image
                   src="https://res.cloudinary.com/dryh1nvhk/image/upload/v1676533324/PILYTIX%20Test/mobile/x-white_a3fhnh.png"
@@ -53,7 +53,7 @@ export const Modal = ({
             </div>
             {/*  */}
             {/* Charts */}
-            <div className="flex flex-col w-full overflow-auto scrollbar-hide gap-[30px]">
+            <div className="flex w-full flex-col gap-[30px] overflow-auto scrollbar-hide">
               {/* Probability History */}
               <ProbabilityHistory rowData={rowData} />
               {/*  */}
@@ -67,12 +67,12 @@ export const Modal = ({
             {/*  */}
           </div>
           {/* Arrows */}
-          <div className="flex justify-center items-center max-w-[1410px] w-full gap-[20%]">
+          <div className="flex w-full max-w-[1410px] items-center justify-center gap-[20%]">
             {/* Navigate previous row */}
             <div className="h-[45px]">
               <button
                 onClick={() => handlePreviousItem()}
-                className="flex items-center h-[40px] rounded-lg px-[35px] gap-[4px] shadow-[0_3px_0px_0px_rgba(73,109,165,1)] hover:mt-[3px] hover:shadow-none bg-gradient-to-b from-[#5781c3] to-[#72C6FB]"
+                className="flex h-[40px] items-center gap-[4px] rounded-lg bg-gradient-to-b from-[#5781c3] to-[#72C6FB] px-[35px] shadow-[0_3px_0px_0px_rgba(73,109,165,1)] hover:mt-[3px] hover:shadow-none"
               >
                 <Image
                   src="https://res.cloudinary.com/dryh1nvhk/image/upload/v1676535959/PILYTIX%20Test/mobile/chevron-left_pbrrn9.png"
@@ -88,7 +88,7 @@ export const Modal = ({
             <div className="h-[45px]">
               <button
                 onClick={() => handleNextItem()}
-                className="flex items-center h-[40px] rounded-lg px-[35px] gap-[4px] shadow-[0_3px_0px_0px_rgba(73,109,165,1)] hover:mt-[3px] hover:shadow-none bg-gradient-to-b from-[#5781c3] to-[#72C6FB]"
+                className="flex h-[40px] items-center gap-[4px] rounded-lg bg-gradient-to-b from-[#5781c3] to-[#72C6FB] px-[35px] shadow-[0_3px_0px_0px_rgba(73,109,165,1)] hover:mt-[3px] hover:shadow-none"
               >
                 <Image
                   src="https://res.cloudinary.com/dryh1nvhk/image/upload/v1676535959/PILYTIX%20Test/mobile/chevron-right_gvdljj.png"
