@@ -9,13 +9,13 @@ export const FactorsDecreasingWin = ({
   return (
     <>
       {rowData?.pilytixFactorsDecreasingWin && (
-        <div className="px-[31px] pt-[18px] flex flex-col gap-[9px] w-full h-full pb-[100px]">
+        <div className="flex h-full w-full flex-col gap-[9px] px-[31px] pt-[18px] pb-[100px]">
           <span className="text-sm font-medium">
             PILYTIX Factors Decreasing Win
           </span>
-          <div className="border rounded-lg flex justify-center items-center h-[350px] w-full">
+          <div className="flex h-[350px] w-full items-center justify-center rounded-lg border">
             {/* Bar Chart */}
-            <div className="w-screen h-full pl-[100px] -ml-[100px]">
+            <div className="-ml-[100px] h-full w-screen pl-[100px]">
               <ResponsiveBar
                 data={rowData.pilytixFactorsDecreasingWin.map((factor) => {
                   return {
