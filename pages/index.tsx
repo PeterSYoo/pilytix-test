@@ -1,13 +1,14 @@
+import { useCallback, useEffect, useState } from 'react';
+import Image from 'next/image';
+import { IOpportunities } from '../types/opportunities';
+import useFetchOpportunities from '@/hooks/useFetchOpportunities';
 import { BasicTable } from '@/components/BasicTable.components';
 import { Modal } from '@/components/Modal.components';
-import useFetchOpportunities from '@/hooks/useFetchOpportunities';
-import Image from 'next/image';
-import { useCallback, useEffect, useState } from 'react';
 
 const Home = () => {
-  const [isModal, setIsModal] = useState(false);
-  const [rowData, setRowData] = useState(null);
-  const [activeIndex, setActiveIndex] = useState<any>(null);
+  const [isModal, setIsModal] = useState<boolean>(false);
+  const [rowData, setRowData] = useState<IOpportunities | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   // Fetches & Caches Data
   const {
@@ -17,7 +18,7 @@ const Home = () => {
     refetchOpportunities,
   } = useFetchOpportunities();
 
-  const handleRowClick = (rowData: any, index: number) => {
+  const handleRowClick = (rowData: IOpportunities, index: number) => {
     setActiveIndex(index);
     setRowData(rowData);
     setIsModal(true);
@@ -43,12 +44,12 @@ const Home = () => {
   }, [dataOpportunities, rowData]);
 
   useEffect(() => {
-    const handleKeyDown = (event: any) => {
-      if (event.keyCode === 37) {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') {
         handlePreviousItem();
-      } else if (event.keyCode === 39) {
+      } else if (event.key === 'ArrowRight') {
         handleNextItem();
-      } else if (event.keyCode === 27) {
+      } else if (event.key === 'Escape') {
         handleCloseModal();
       }
     };
@@ -153,12 +154,7 @@ const Home = () => {
         {/* Table */}
         <BasicTable
           dataOpportunities={dataOpportunities}
-          isLoadingOpportunities={isLoadingOpportunities}
-          isErrorOpportunities={isErrorOpportunities}
-          refetchOpportunities={refetchOpportunities}
           handleRowClick={handleRowClick}
-          isModal={isModal}
-          setIsModal={setIsModal}
         />
         {/*  */}
       </div>
