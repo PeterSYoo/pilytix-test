@@ -17,10 +17,10 @@ export const BasicTable = ({
 
   return (
     <>
-      <div className="mx-[13px] xl:mx-[34px] scrollbar-hide bg-white overflow-auto border border-[#F2F2F2] rounded-lg">
+      <div className="mx-[13px] overflow-auto rounded-lg border border-[#F2F2F2] bg-white scrollbar-hide xl:mx-[34px]">
         <div className="grid auto-rows-auto text-sm xl:text-xs">
           {/* Column names for xl screens and higher */}
-          <div className="hidden xl:grid-cols-[1.9fr_1.9fr_1fr_1fr_1fr_1fr_1fr_1fr] xl:grid xl:py-3 xl:pl-[17px] text-xs font-medium text-[#6C6F75] border-b border-[#F2F2F2]">
+          <div className="hidden border-b border-[#F2F2F2] text-xs font-medium text-[#6C6F75] xl:grid xl:grid-cols-[1.9fr_1.9fr_1fr_1fr_1fr_1fr_1fr_1fr] xl:py-3 xl:pl-[17px]">
             <span>OPP NAME</span>
             <span>OPP STAGE</span>
             <span>REP PROBABILITY</span>
@@ -37,7 +37,7 @@ export const BasicTable = ({
                 onClick={() => handleRowClick(row, index)}
                 className={`${
                   index % 2 === 0 ? 'bg-white' : 'bg-[#f7f7f7] xl:bg-white'
-                } hover:bg-[#F2F2F2] cursor-pointer border-b border-[#F2F2F2] xl:grid-cols-[1.9fr_1.9fr_1fr_1fr_1fr_1fr_1fr_1fr] xl:grid xl:py-2 xl:px-2 md:px-3`}
+                } cursor-pointer border-b border-[#F2F2F2] hover:bg-[#F2F2F2] md:px-3 xl:grid xl:grid-cols-[1.9fr_1.9fr_1fr_1fr_1fr_1fr_1fr_1fr] xl:py-2 xl:px-2`}
               >
                 <div className="flex justify-between px-[10px] py-[4px]">
                   <p className="xl:hidden">OPP NAME</p>
@@ -46,32 +46,32 @@ export const BasicTable = ({
                 <div className="flex justify-between px-[10px] py-[4px]">
                   <p className="xl:hidden">OPP STAGE</p>
                   {row.stage === '1. No Conversation' && (
-                    <div className="text-[#69A2F9] bg-[#F2F2F2] rounded px-2 py-1 flex justify-center items-center">
+                    <div className="flex items-center justify-center rounded bg-[#F2F2F2] px-2 py-1 text-[#69A2F9]">
                       {row.stage}
                     </div>
                   )}
                   {row.stage === '2. Attempted Contact' && (
-                    <div className="text-[#60A8EA] bg-[#F2F2F2] rounded px-2 py-1 flex justify-center items-center">
+                    <div className="flex items-center justify-center rounded bg-[#F2F2F2] px-2 py-1 text-[#60A8EA]">
                       {row.stage}
                     </div>
                   )}
                   {row.stage === '3. Initial Conversation' && (
-                    <div className="text-[#59ACDF] bg-[#F2F2F2] rounded px-2 py-1 flex justify-center items-center">
+                    <div className="flex items-center justify-center rounded bg-[#F2F2F2] px-2 py-1 text-[#59ACDF]">
                       {row.stage}
                     </div>
                   )}
                   {row.stage === '5. Meeting or Product Discovery' && (
-                    <div className="text-[#4CB4C7] bg-[#F2F2F2] rounded px-2 py-1 flex justify-center items-center">
+                    <div className="flex items-center justify-center rounded bg-[#F2F2F2] px-2 py-1 text-[#4CB4C7]">
                       {row.stage}
                     </div>
                   )}
                   {row.stage === '7. Nearing a Decision' && (
-                    <div className="text-[#3FBDB0] bg-[#F2F2F2] rounded px-2 py-1 flex justify-center items-center">
+                    <div className="flex items-center justify-center rounded bg-[#F2F2F2] px-2 py-1 text-[#3FBDB0]">
                       {row.stage}
                     </div>
                   )}
                   {row.stage === '8. Payment Pending' && (
-                    <div className="text-[#36C2A0] bg-[#F2F2F2] rounded px-2 py-1 flex justify-center items-center">
+                    <div className="flex items-center justify-center rounded bg-[#F2F2F2] px-2 py-1 text-[#36C2A0]">
                       {row.stage}
                     </div>
                   )}
